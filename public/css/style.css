@@ -1,0 +1,552 @@
+/* Put your CSS here */
+.ember-application {
+    
+    //height: 100%;
+}
+html, body {
+    position:absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#close-div {
+    width: 100%;
+}
+#close-btn {
+    float: right;
+}
+
+
+
+#countryList{
+	z-index: 999;
+}
+.list-group {
+    margin-bottom: 0px !important;
+}
+.list-group-item:first-child {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+
+.map-canvas {
+    position: absolute;
+    
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    
+    width: auto !important;
+    height: auto !important;
+}
+
+#infoWindow {
+    height: 100%;
+    max-width: 350px;
+    //max-height: 400px;
+}
+
+#get-dir-btn {
+    margin-top: 5px;
+}
+
+.gm-style-iw {
+    overflow: hidden !important;
+    //height: 100% !important;
+    //width: auto !important;
+}
+.gm-style-iw div {
+    overflow: hidden !important;
+    //width: 100% !important;
+}
+
+navbar .navbar-form{
+    padding: 0 15px;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.marker-search{
+    margin-top: 7px;
+}
+.search-bar {
+    height:39px;
+    margin-top: 2px;
+    margin-right: 2px;
+}
+.arrow-icon{
+    display: none;
+}
+
+.marker-icon{
+    height:40px;
+
+
+}
+.location-icon{
+    position: inline;
+    display: inherit;
+    height: 35px;
+    padding: 3px;
+    //padding-right: 3px;
+}
+.transport-icon{
+    height: 35px;
+}
+.navbar .navbar-form {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.nav-tabs > li {
+    width:50%;
+}
+.nav-tabs > li.active > a {
+    background-color: yellow;
+}
+.navbar .navbar-form {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#nav-bar-list {
+    padding: 6px 9px;
+    position: absolute;
+    z-index: 4;
+}
+#nav-bar-toggle {
+    position: absolute;
+    z-index: 2;
+}
+#resultList {
+    position: absolute;
+    width: 100%;
+    
+    top: 98px;
+    bottom: 0px;
+    
+    overflow: auto;
+    overflow-x: hidden;
+    z-index: 1;
+    display:inline;
+}
+
+#channelList {
+    position: absolute;
+    width: 100%;
+    top: 102px;
+    bottom: 0px;
+    overflow: auto;
+    overflow-x: hidden;
+    //z-index: 9999;
+    display:inline;
+	
+}
+#mChannelList {
+	
+    position: absolute;
+    width: 100%;
+    height:300px;
+    overflow-y: auto;
+    //z-index: 9999;
+    display:none;
+	
+}
+
+#default {
+    z-index: 1;
+}
+#directions{
+    //z-index:101;
+    top: 54px;
+    bottom: 0px;
+    display:none;	
+    background:white;
+    
+    z-index: 3;
+}
+
+#directionsPanel {
+    padding: 0px 4px;
+}
+.directions-parent {
+    padding: 8px !important;
+    position: absolute !important;
+    width: 100%;
+    top: 190px;
+    bottom: 0px;
+    overflow: auto;
+    overflow-x: hidden;
+    display:inline;
+    //height:85%;
+}
+
+/*
+#directionsSearch{
+display:none;
+}*/
+
+.advance-button{
+    width:100%;
+    height:30px;
+}
+
+.directions-item{  
+    text-decoration:none !important;
+}
+a {
+    text-decoration:none !important;
+    color: darkgrey;
+}
+
+.directions-item:hover{
+  background-color:#ddd;
+  text-decoration:none;
+}
+
+#ATM {
+    background-color: whitesmoke;//#D3E7ED;
+}
+.gmap-trigger-item:hover#ATM{
+    background-color:  #D3E7ED;
+}
+#AXS {
+    background-color: whitesmoke;//#F2F8FF;
+}
+.gmap-trigger-item:hover#AXS{
+    background-color:  #D3E7ED;
+}
+#Branch {
+    background-color: whitesmoke;//#DCF4D9;
+}
+.gmap-trigger-item:hover#Branch{
+    background-color:  #D3E7ED;
+}
+
+li.toggle-bar-parent {
+    padding: 0px 0px 5px 0px;
+    position: absolute;
+    //z-index: 3;
+    top: 54px;
+    width: 100%;
+    border-bottom: 0px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+
+.toggle-bar {
+    width: 100%;
+    padding: 0px;
+    margin-top: 2px;
+}
+.toggle-bar-item {
+    padding: 14px 5px;
+    //margin-left: 6px;
+    display: inline;
+}
+
+li.toggle-bar-item.active {
+    color: #22A7F0;
+	 font-weight: bold;
+}
+.toggle-bar-item-t {
+    padding: 2px;
+    //margin-left: 6px;
+    display: inline-block;
+	text-align:center;
+	width:29%;
+}
+li.toggle-bar-item-t.active {
+    background-color: lightgrey;
+}
+
+#atm {
+    height: 100%;
+}
+
+.side-panel {
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+}
+
+.mobile {
+    display:none
+}
+.mobile-hidden {
+    padding-top: 5px;
+}
+
+#toggleBarT {
+    margin-top: 10px;
+}
+.dir-div {
+    padding: 0px 0px;
+    display: none;
+}
+.m-dir-div {
+    padding: 7px 0px 0px 0px;
+}
+
+.gmap-trigger-item:hover .dir-div{
+    display: block
+}
+
+.content-div {
+    padding: 2px 0px 6px 0px;
+    display: none;
+}
+
+.gmap-trigger-item:hover .content-div{
+    display:inline-block;
+}
+
+div.ATM {
+    display:none;
+}
+div.AXS {
+    display:none;
+}
+div.Branch {
+    display:inline-block;
+}
+
+
+#flagIcon {
+    background:url(../resources/img/web/flags.png) no-repeat;
+    border: 2px solid #ccc;
+    width:31px;
+    height:20px;
+}
+#flagIcon.hk {
+    background-position:0px 0px;		
+}
+
+#flagIcon.in {
+    background-position:0px -20px;		
+}
+
+#flagIcon.sg {
+    background-position:0px -40px;	
+}
+
+#flagIcon.my {
+    background-position:0px -60px;		
+}
+
+#flagIcon.uae {
+    background-position:0px -80px;	
+}
+
+#flagIcon.cn {
+    background-position:0px -100px;	
+}
+
+#flagIcon.tw {
+    background-position:0px -120px;	
+}
+
+#flagIcon.id {
+    background-position:0px -140px;	
+}
+
+#flagIcon.pk {
+    background-position:0px -160px;	
+}
+#flagIcon.th {
+    background-position:0px -180px;
+}
+#flagIcon.bn {
+    background-position:0px -200px;
+}
+
+li.cn#cn {
+    display:none !important;
+}
+li.hk#hk {
+    display:none !important;
+}
+li.in#in {
+    display:none !important;
+}
+li.id#id {
+    display:none !important;
+}
+li.my#my {
+    display:none !important;
+}
+li.pk#pk {
+    display:none !important;
+}
+li.sg#sg {
+    display:none !important;
+}
+li.th#th {
+    display:none !important;
+}
+li.tw#tw {
+    display:none !important;
+}
+li.uae#uae {
+    display:none !important;
+}
+
+.location-bar {
+    margin: 5px 0px;
+}
+::-webkit-scrollbar {
+    width: 8px;
+	
+}
+::-webkit-scrollbar-button {
+    width: 8px;
+    height:5px;
+}
+
+::-webkit-scrollbar-track {
+    background:#eee;
+    border: thin solid lightgray;
+    box-shadow: 0px 0px 3px #dfdfdf inset;
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+    background:#999;
+    border: thin solid gray;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:#7d7d7d;
+}           
+
+.spinner {
+    
+    background: url(../resources/ajax-loader.gif) center center no-repeat;
+    //display: inline-block;
+    
+    height:100%;
+    width:100%;
+    
+}
+
+//google directions
+.adp-substep {
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #FFF;
+    vertical-align: middle !important;
+}
+.adp-list b {
+    display: block;
+    font-weight: bold;
+}
+.adp-directions {
+    cursor: hand;
+}
+
+img.adp-marker {
+    margin: 3px 15px 3px 7px;
+}
+
+table.adp-fullwidth {
+    border: none!important;
+}
+.adp-legal {
+    display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.modal {
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  
+  display:block;
+  margin: 10px auto;
+  width: 70%;
+  height: 80%;
+  background-color: white;
+  padding: 1em;
+  z-index:103;
+  overflow-y:auto;
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index:102;
+}
+.flush--top {
+  margin-top: 0;  
+}
+
+.anchorBL {
+  left:1000px !important;
+}
+
+.back-btn {
+    padding-bottom: 10px;
+}
+
+#baiduInfoWindow {
+    width: 400px !important;
+    font-size: small;
+    max-height: 210px;
+    overflow-y:auto;
+}
+.dropdown-menu {
+    z-index:103;
+}
+.dropdown-menu>li {
+    cursor: pointer;
+    cursor:hand;
+}
+.toggle-bar>li {
+    cursor: pointer;
+    cursor:hand;
+}
+
+#nav-bar-input-grp {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+#directionsForm {
+    width: 100%;
+}
+
+span.highlight {
+    background-color: yellow;
+}
+
+.clearable{
+  background: #fff url(data:image/gif;base64,R0lGODlhBwAHAIAAAP///5KSkiH5BAAAAAAALAAAAAAHAAcAAAIMTICmsGrIXnLxuDMLADs=) no-repeat right -10px center;
+  border: 1px solid #999;
+  padding: 3px 30px 3px 4px; /* Use the same right padding (18) in jQ! */
+  border-radius: 3px;
+  transition: background 0.4s;
+}
+.clearable.x  { background-position: right 10px center; }
+.clearable.onX{ cursor: pointer; }
+
+.location-div {
+    width: 100%;
+    display: inline;
+}

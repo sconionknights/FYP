@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example of Twitter Bootstrap 3 Accordion</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+	
+	li{
+		margin-bottom:20px;
+	}
+	
+	.btn-primary{
+		margin-top:7px;
+	}
+
+</style>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+<a href="index.html" class="btn btn-primary"><span class="glyphicon glyphicon-backward"></span> Back to ATM Locator</a>
+</div>
+<br/><br/><br/>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1.	How do I know if I can join the queue at a branch?</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>A:  The "join queue" function will be disabled if the branch is unavailable. Thus, you should be able to join a queue as long as the branch is currently available.</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2.	When will I be able to get my queue number after joining the queue?</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  You will receive an SMS that states the queue ID upon reaching the branch which you queued in. This queue ID's number is based on the timing in which you clicked on "Join queue". Queue ID expires after two hours so if you do not reach the branch in that timing, you will no longer be part of the queue.</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3.	How do I find out which branch has the least queue / expected wait time at the moment?</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:   Upon toggling on the "Standard Chartered Bank (SCB)" icon on the map, a list of SCB braches will be populated. Each of the branch segment populated will show the latest queue number at each of the branch. You will be able to sort the list by "Expected Wait Time" to find out which branch has the least queue number.</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4.	How do I find out which branch is the nearest to my current location?</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  Upon toggling on the "Standard Chartered Bank (SCB)" icon on the map, a list of SCB braches will be populated. Each of the branch segment populated will show the distance from your current location to that particular branch. You will also be able to the sort the list in terms of distance by using the "Near Me" option.</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">5.	I am unable to view the distance from my current location to the SCB branch that I have selected / I am unable to view my current location on the map.</a>
+                </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  Do ensure that your current location has been enabled.For desktop users using Chrome, you can enable location services by doing the following steps:<br/><br/>
+					<ul>
+					<li>Step 1: Select icon on top right corner of browser > Select "Settings"<br/>
+						<img src="resources/img/help/step1.png"/>
+					</li>
+					<li>Step 2: Select "Content Settings" under Privacy<br/><br/>
+						<img src="resources/img/help/step2.png"/>
+					</li>
+					<li>Step 3: Select "Ask when a tries to track your physical location (recommendations)" under the "Location" segment.<br/>
+						<img src="resources/img/help/step3.png"/>
+					</li>
+					<li>Step 4: Reload the page and select "Allow" when prompt with a dialogue box to allow site to use location services.<br/>
+						<img src="resources/img/help/step4.png"/>
+					</li>
+					</ul>
+					
+					<br/>
+					For desktop users using <b>Internet Explorer</b>, you can enable location services by doing the following steps:<br/>
+					<ul>
+					<li>Step 1: Select icon on top right corner of browser > Select "Internet Options".<br/>
+						<img src="resources/img/help/IEStep1.png"/>
+					</li>
+					<li>Step 2: Select "Privacy" Tab > Uncheck "Never allow websites to request your physical location" > "Apply" button.<br/>
+						<img src="resources/img/help/IEStep2.png"/>
+					</li>
+					<li>Step 3: Reload the page and select "Allow once" when prompt with a dialogue box to allow site to use location services.<br/>
+						<img src="resources/img/help/IEStep3.png"/>
+					</li>
+					</ul>
+</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">6.	Why have I not received an SMS about my queue number despite being in the bank branch?</a>
+                </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  Your queue ID may have expired because you took longer than two hours to come into the branch. Please go to a bank staff for assistance.</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">7.	What if I clicked on "Join queue" to join the queue virtually but I am no longer physically going to go to the branch I queued at?</a>
+                </h4>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  You are not required to do anything - the queue ID assigned to you will be expired in 2 hours or by the bank's closing time.</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">8.	How do I find a branch in another country?</a>
+                </h4>
+            </div>
+            <div id="collapseEight" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  Click on the Singapore flag beside the search bar and select the country you would like to search for.</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseNine">9.	Do I have to sign up with SCB to use this queue system?</a>
+                </h4>
+            </div>
+            <div id="collapseNine" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  No. A sign up is not required and the queue system is open to everyone for use.</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTen">10.	I would like to be attended by a specific agent when I reach the branch I chose. How do I go about doing so?</a>
+                </h4>
+            </div>
+            <div id="collapseTen" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  Customers are unfortunately unable to request to be served by a specific bank staff. Instead, customers will be randomly assigned to any bank staff who is available at their time of availability.</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">11.	What happens if the devices that I am using gets disconnected when I am attempting to "Join queue"? How would I know that I have already been inserted into the queue virtually?</a>
+                </h4>
+            </div>
+            <div id="collapseEleven" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>A:  As long as you have received an SMS stating that your virtual queue has been acknowledged, it will mean that you have successfully joined the queue. If you do not receive any SMS after 5 minutes, do refresh the page and repeat the process of joining the queue again.</p>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">12.	What are some useful tips available?</a>
+                </h4>
+            </div>
+            <div id="collapseTwelve" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Do ensure that the your notifications and sound is set to loud so that you will be able to receive alerts of messages which may be send to you, informing you of your queue ID and others.Ensure that you are in 3G or 4G coverage when you insert yourself into the queue.Should your phone run out of battery, do approach any bank staff for assistance.
+</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>                                		                                		

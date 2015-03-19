@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ATM Branch Locator</title>
+        <link rel="stylesheet" href="css/normalize.css">
+
+        <link rel="stylesheet" href="css/libs/bootstrap.css">
+        <link rel="stylesheet" href="css/libs/bootstrap.css.map">
+        <link rel="stylesheet" href="css/libs/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/libs/bootstrap-theme.css.map">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/fullhd-portrait.css">
+        <link rel="stylesheet" href="css/large-portrait.css">
+        <link rel="stylesheet" href="css/medium-portrait.css">
+        <link rel="stylesheet" href="css/small-portrait.css">
+        <link rel="stylesheet" href="css/extra-small-portrait.css">
+
+        <script src="http://maps.googleapis.com/maps/api/js?v=3"></script>
+        <script src="http://api.map.baidu.com/api?v=1.5&amp;ak=2uOs5IUwv9AQsfRWFvj8xVLj" type="text/javascript"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="HandheldFriendly" content="true" />
+    </head>
+    <body >
+        <div class="loading-overlay">
+            <div class="spinner">
+            </div>
+        </div>
+        <script type="text/x-handlebars">
+
+            <div class="container"> 
+            {{google-maps countryToggle=countryToggle}} 
+            </div>
+
+            <div class="container">
+            {{info-window id=id body=body}} 
+            </div>
+
+            <div class="container">
+            {{outlet}} 
+            </div>
+
+            <div class="container">
+            {{outlet 'modal'}} 
+            </div>
+            <!--Desktop View End-->
+            <div class="info-panel" style="vertical-align:bottom"></div>
+        </script>
+        <script type="text/x-handlebars" data-template-name="components/google-maps">
+            <div class="container map-canvas"> 
+            </div>
+        </script>
+
+        <script type="text/x-handlebars" id="components/info-window">
+            <h1>{{id}}</h1>
+            <div class="body">{{yield}}</div>
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="modal">
+            {{#modal-dialog}}
+
+
+
+            <a class="btn btn-primary" {{action "close"}}>Back to Maps</a>
+
+
+            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1.	How do I know if I can join the queue at a branch?</a>
+            </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+            <p>A:  The "join queue" function will be disabled if the branch is unavailable. Thus, you should be able to join a queue as long as the branch is currently available.</p>
+            </div>
+            </div>
+            </div>
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2.	When will I be able to get my queue number after joining the queue?</a>
+            </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  You will receive an SMS that states the queue ID upon reaching the branch which you queued in. This queue ID's number is based on the timing in which you clicked on "Join queue". Queue ID expires after two hours so if you do not reach the branch in that timing, you will no longer be part of the queue.</p>
+            </div>
+            </div>
+            </div>
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3.	How do I find out which branch has the least queue / expected wait time at the moment?</a>
+            </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:   Upon toggling on the "Standard Chartered Bank (SCB)" icon on the map, a list of SCB braches will be populated. Each of the branch segment populated will show the latest queue number at each of the branch. You will be able to sort the list by "Expected Wait Time" to find out which branch has the least queue number.</p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4.	How do I find out which branch is the nearest to my current location?</a>
+            </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  Upon toggling on the "Standard Chartered Bank (SCB)" icon on the map, a list of SCB braches will be populated. Each of the branch segment populated will show the distance from your current location to that particular branch. You will also be able to the sort the list in terms of distance by using the "Near Me" option.</p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">5.	I am unable to view the distance from my current location to the SCB branch that I have selected / I am unable to view my current location on the map.</a>
+            </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  Do ensure that your current location has been enabled.For desktop users using Chrome, you can enable location services by doing the following steps:<br/><br/>
+            <ul>
+            <li>Step 1: Select icon on top right corner of browser > Select "Settings"<br/>
+            <img src="resources/img/help/step1.png"/>
+            </li>
+            <li>Step 2: Select "Content Settings" under Privacy<br/><br/>
+            <img src="resources/img/help/step2.png"/>
+            </li>
+            <li>Step 3: Select "Ask when a tries to track your physical location (recommendations)" under the "Location" segment.<br/>
+            <img src="resources/img/help/step3.png"/>
+            </li>
+            <li>Step 4: Reload the page and select "Allow" when prompt with a dialogue box to allow site to use location services.<br/>
+            <img src="resources/img/help/step4.png"/>
+            </li>
+            </ul>
+
+            <br/>
+            For desktop users using <b>Internet Explorer</b>, you can enable location services by doing the following steps:<br/>
+            <ul>
+            <li>Step 1: Select icon on top right corner of browser > Select "Internet Options".<br/>
+            <img src="resources/img/help/IEStep1.png"/>
+            </li>
+            <li>Step 2: Select "Privacy" Tab > Uncheck "Never allow websites to request your physical location" > "Apply" button.<br/>
+            <img src="resources/img/help/IEStep2.png"/>
+            </li>
+            <li>Step 3: Reload the page and select "Allow once" when prompt with a dialogue box to allow site to use location services.<br/>
+            <img src="resources/img/help/IEStep3.png"/>
+            </li>
+            </ul>
+            </p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">6.	Why have I not received an SMS about my queue number despite being in the bank branch?</a>
+            </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  Your queue ID may have expired because you took longer than two hours to come into the branch. Please go to a bank staff for assistance.</p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">7.	What if I clicked on "Join queue" to join the queue virtually but I am no longer physically going to go to the branch I queued at?</a>
+            </h4>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  You are not required to do anything - the queue ID assigned to you will be expired in 2 hours or by the bank's closing time.</p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">8.	How do I find a branch in another country?</a>
+            </h4>
+            </div>
+            <div id="collapseEight" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  Click on the Singapore flag beside the search bar and select the country you would like to search for.</p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseNine">9.	Do I have to sign up with SCB to use this queue system?</a>
+            </h4>
+            </div>
+            <div id="collapseNine" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  No. A sign up is not required and the queue system is open to everyone for use.</p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTen">10.	I would like to be attended by a specific agent when I reach the branch I chose. How do I go about doing so?</a>
+            </h4>
+            </div>
+            <div id="collapseTen" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  Customers are unfortunately unable to request to be served by a specific bank staff. Instead, customers will be randomly assigned to any bank staff who is available at their time of availability.</p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">11.	What happens if the devices that I am using gets disconnected when I am attempting to "Join queue"? How would I know that I have already been inserted into the queue virtually?</a>
+            </h4>
+            </div>
+            <div id="collapseEleven" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>A:  As long as you have received an SMS stating that your virtual queue has been acknowledged, it will mean that you have successfully joined the queue. If you do not receive any SMS after 5 minutes, do refresh the page and repeat the process of joining the queue again.</p>
+            </div>
+            </div>
+            </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">12.	What are some useful tips available?</a>
+            </h4>
+            </div>
+            <div id="collapseTwelve" class="panel-collapse collapse">
+            <div class="panel-body">
+            <p>Do ensure that the your notifications and sound is set to loud so that you will be able to receive alerts of messages which may be send to you, informing you of your queue ID and others.Ensure that you are in 3G or 4G coverage when you insert yourself into the queue.Should your phone run out of battery, do approach any bank staff for assistance.
+            </p>
+            </div>
+            </div>
+            </div>
+            </div>
+            {{/modal-dialog}}
+        </script>
+
+        <script type="text/x-handlebars" id="components/modal-dialog">
+            <div class="overlay" action="close"> 
+            <div class="modal">
+            {{yield}}
+            </div>
+
+            </div>
+        </script>
+        <script type="text/x-handlebars" data-template-name="channelDetail">
+
+            <div class="row">
+
+            <div class="side-panel" data-template="channelDetail">
+            <a {{action "toUserLocation"}}><img class="arrow-icon" id="toggle-icon" src="resources/img/mobile/arrow.png"></img></a>
+            <ul class="list-group">
+            <li  class="list-group-item">
+            <div class="input-group">
+            <div class="input-group-btn">
+            <a {{action "showToggleBar"}}><img class="filter-icon" src="resources/img/mobile/filter.png"></img></a>
+
+            {{#if listViewToggle}}
+            <a {{action "toggleListView"}}><img class="filter-icon" src="resources/img/mobile/map2.png"></img></a>
+            {{else}}
+            <a {{action "toggleListView"}}><img class="filter-icon" src="resources/img/mobile/list.png"></img></a>
+            {{/if}}
+
+            </div>
+
+            {{input valueBinding="searchTerm" class="form-control search-bar" placeholder="Search" }}
+            <div class="input-group-btn">
+            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+            <div {{bind-attr class="countryToggle"}} id="flagIcon" ></div>
+            </a>
+            <a class="btn" {{action 'openModal' 'modal'}}><span class="glyphicon glyphicon-question-sign"></span></a>
+
+            <!-- Disabled for Baidu---------------
+            <ul class="dropdown-menu dropdown-menu-right">
+            <li id="cn" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'cn'}}>China</a></li>
+            <li id="hk" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'hk'}}>Hong Kong</a></li>
+            <li id="in" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'in'}}>India</a></li>
+            <li id="id" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'id'}}>Indonesia</a></li>
+            <li id="my" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'my'}}>Malaysia</a></li>
+            <li id="pk" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'pk'}}>Pakistan</a></li>
+            <li id="sg" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'sg'}}>Singapore</a></li>
+            <li id="th" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'th'}}>Thailand</a></li>
+            <li id="tw" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'tw'}}>Taiwan</a></li>
+            <li id="uae" {{bind-attr class="countryToggle"}}><a {{action "toggleCountry" 'uae'}}>United Arab Emirates</a></li>
+            </ul>
+            ----------------------------->
+            </div>
+
+
+            </div>
+
+
+
+
+            </li>
+
+            <li id="toggleBar" class="list-group-item toggle-bar-parent">
+            <ul class="toggle-bar">
+            <li {{bind-attr class=":toggle-bar-item atmToggle:active:"}} {{action "toggleATM"}}><img class="marker-icon" src="resources/img/pin/pin-atm-wb.png"></img><span class="mobile">ATM</span>
+            </li>
+            <li {{bind-attr class=":toggle-bar-item axsToggle:active:"}} {{action "toggleAXS"}}><img class="marker-icon" src="resources/img/pin/pin-axs-wb.png"></img><span class="mobile">AXS</span>
+            </li>
+            <li {{bind-attr class=":toggle-bar-item branchToggle:active:"}} {{action "toggleBranch"}}><img class="marker-icon" src="resources/img/pin/pin-branch-wb.png"></img><span class="mobile">Branch</span>
+            </li>
+            <li {{bind-attr class=":toggle-bar-item dealToggle:active:"}} {{action "toggleDeal"}}><img class="marker-icon" src="resources/img/pin/pin-deal-wb.png"></img><span class="mobile">Deal</span>
+            </li>
+            </ul>
+            </li>
+
+
+            </ul>
+
+            {{#if search}}
+            <ul class="list-group" id="resultList">
+            {{#group}}
+            {{#each item in searchFilter}}
+
+            <li {{bind-attr id="item.channelType"}} class="list-group-item gmap-trigger-item" {{action "selectMarker" item}}>
+            <div><strong>{{{item.channelName}}}</strong>
+            </br>{{{item.ownDesc}}}
+            <span {{bind-attr class="item.channelType"}}></br>Operating Hours:</br> {{{item.opHours}}}</span></br>
+            <div class="dir-div">
+            <a {{action "findDirections" item.latitude item.longitude item.ownDesc }}><button class="btn btn-xs btn-primary">Get Directions</button></a>
+            </div>
+            </div>
+            </li>
+            {{else}}    
+            <li class="list-group-item">No channels found</li>
+            {{/each}}
+            {{/group}}
+
+            {{#if searchHasMore}}
+            <li class="list-group-item" {{action "showMore"}}><div>Show More</div></li>
+            {{/if}}
+            </ul>
+            {{else}}
+            <ul class="list-group" id="channelList">
+            {{#group}}
+            {{#each item in channelFilter}}
+
+            <li {{bind-attr id="item.channelType"}} class="list-group-item gmap-trigger-item" {{action "selectMarker" item}}>
+            <div><div class="mobile"><img class="arrow-icon" src="resources/img/mobile/info.png"></img></div>
+            <strong>{{{item.channelName}}}</strong>
+            </br>{{{item.ownDesc}}}
+            <span {{bind-attr class="item.channelType"}}></br>Operating Hours:</br> {{{item.opHours}}}</span></br>
+            <div class="dir-div">
+            <a {{action "findDirections" item.latitude item.longitude item.ownDesc }}><button class="btn btn-xs btn-primary">Get Directions</button></a>
+            </div>
+            </div>
+            </li>
+            {{else}}    
+            <li class="list-group-item">No channels found</li>
+            {{/each}}
+
+            {{#if channelHasMore}}
+            <li class="list-group-item" {{action "showMore"}}><div>Show More</div></li>
+            {{/if}}
+
+            {{/group}}
+            </ul>
+
+            {{/if}}
+
+            </div>
+
+            <!--Start of Directions-->
+            <div class="col-lg-3 side-panel" id="directions">
+
+            <ul class="list-group">
+            <li id="toggleBar" class="list-group-item toggle-bar-parent">
+
+            <ul class="toggle-bar">
+            <li {{bind-attr class=":toggle-bar-item-t drivingToggle:active:"}} {{action "toggleDriving"}}><img class="transport-icon" src="resources/img/web/driving.png"></img>
+            </li>
+            <li {{bind-attr class=":toggle-bar-item-t transitToggle:active:"}} {{action "toggleTransit"}}><img class="transport-icon" src="resources/img/web/transit.png"></img>
+            </li>
+            <li {{bind-attr class=":toggle-bar-item-t bicyclingToggle:active:"}} {{action "toggleBicycling"}}><img class="transport-icon" src="resources/img/web/bicycling.png"></img>
+            </li>
+            <li {{bind-attr class=":toggle-bar-item-t walkingToggle:active:"}} {{action "toggleWalking"}}><img class="transport-icon" src="resources/img/web/walking.png"></img>
+            </li>
+            <li class="toggle-bar-item-t" id="close-btn"><a onClick="hideDirections()" {{action "closeDirection"}} class="glyphicon glyphicon-remove"></a>
+            </li>
+            </ul>
+            </li>
+
+            <li id="directionsSearch" class="list-group-item">
+            <form {{action "renderDirections" on="submit"}}>
+            {{input type="text" value=locationA class="form-control location-bar input-sm" placeholder="Start"}}
+            {{input type="text" value=locationB class="form-control location-bar input-sm" placeholder="End"}}
+            <button class="btn btn-success btn-xs">Get Directions</button>
+            {{input type="submit" class="hidden"}}
+            </form>
+            </li>
+
+            <li {{action "showAdvancedSearch"}}style="text-align:center;">
+            <img class="advance-button" src="resources/img/web/list_toggle.png"/>
+
+            </li>
+
+            <li class="list-group-item directions-parent">
+            <div id="directionsPanel">
+            <ul class="list-group" id="directionsList">
+            </ul>
+            </div>
+            </li>
+
+            </ul>
+            </div>
+            <!--End of Directions-->
+
+            </div>
+
+            <div class="container-fluid" id="locationBtn">
+
+            </div>
+        </script>
+
+        <script src="js/libs/jquery-1.11.2.js"></script>
+        <script src="js/libs/handlebars-v2.0.0.js"></script>
+        <script src="js/libs/ember.js"></script>
+        <script src="js/libs/ember-data.js"></script>
+        <script src="js/libs/geolocationmarker.js"></script>
+
+        <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+        <script src="js/libs/markerclustererBaidu.js"></script>
+        <script src="js/baiduApp.js"></script>
+
+        <!-- to activate the test runner, add the "?test" query string parameter -->
+        <script src="tests/runner.js"></script>
+        <script src="js/libs/bootstrap.js"></script>
+
+
+    </body>
+</html>

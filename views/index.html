@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <!-- jQuery -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+        <!-- Firebase -->
+        <script src='https://cdn.firebase.com/js/client/2.1.0/firebase.js'></script>
+
+        <!-- Firechat -->
+        <link rel='stylesheet' href='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css' />
+        <script src='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.js'></script>
+
+        <script>
+        // Create a new Firebase reference, and a new instance of the Login client
+        var chatRef = new Firebase('https://collab123.firebaseio.com/chat');
+
+        function login() {
+          chatRef.authWithOAuthPopup("facebook", function(error, authData) {
+            if (error) {
+              console.log(error);
+            }
+          });
+        }
+
+        chatRef.onAuth(function(authData) {
+          // Once authenticated, instantiate Firechat with our user id and user name
+          if (authData) {
+            initChat(authData);
+          }
+        });
+        </script>
+        <script>
+            function initChat(authData) {
+              var chat = new FirechatUI(chatRef, document.getElementById('firechat-wrapper'));
+              chat.setUser(authData.uid, authData[authData.provider].displayName);
+            }
+        </script>
+        
+        <div>TODO write content</div>
+        
+        <a href='#' onclick='login();'>Login with Facebook</a>
+        
+        
+        <div id='firechat-wrapper'></div>
+
+
+        
+    </body>
+</html>

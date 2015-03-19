@@ -1,0 +1,90 @@
+/*@media screen and (max-width: 767px){
+
+    body, html { 
+        overflow-y: hidden;
+    }
+    .side-panel{
+         position:absolute;
+        top:5px;
+        left:5px;
+        width:315px;
+        padding:0 1px;
+        z-index:9999;
+        height:50px;
+    }
+
+    .nav{
+        display:none;
+    }
+
+    .search-bar{
+    	padding:6px 6px;
+    	margin-top:3px;
+        width:83%;
+        display:inline;
+    }
+
+    .top-bar ul{
+        visibility: inherit;
+
+    }
+
+    .top-bar{
+    	height:45px;
+    }
+
+    .brand{
+        background-image: url("../resources/img/mobile/logo.png");
+        background-repeat: no-repeat;
+        height:52px;
+
+        margin-top:7px;
+        margin-right:15px;
+        margin-left: 4px;
+    }
+
+    .navbar-brand{
+        padding:7px;
+    }
+    .marker-icon{
+        width:50px;
+        height:50px;
+    }
+    .filter-icon{
+        display:inherit;
+        width:35px;
+        height:35px;
+        margin-left:5px;
+    }
+    .marker-link{
+        margin-top:5px;
+        margin-left:5px;
+        padding:5px 5px 5px 10px !important;
+    }
+
+    #mInfoWindow{
+        padding: 8px 15px;
+    }
+    
+    #infoWindow{
+    }
+    #ATMToggle.active {
+        background-color: #08F0FD;
+    }
+    #AXSToggle.active {
+        background-color: #63FFBD;
+    }
+    #BranchToggle.active {
+        background-color: #FFFF65;
+    }
+
+      .list-group-item{
+        padding:5px 4px;
+    }
+
+
+  #resultList{
+        overflow: auto;
+        min-height: 100px;
+    }
+}*/
